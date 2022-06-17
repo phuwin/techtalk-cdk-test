@@ -30,30 +30,30 @@ export class TechtalkCdkTestStack extends Stack {
       dockerEnabledForSynth: true,
     });
 
-    const lambdaStage = new MyStage(this, 'LambdaStage');
-    pipeline.addStage(lambdaStage);
+    // const lambdaStage = new MyStage(this, 'LambdaStage');
+    // pipeline.addStage(lambdaStage);
   }
 }
 
-class MyStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
+// class MyStack extends Stack {
+//   constructor(scope: Construct, id: string, props?: StackProps) {
+//     super(scope, id, props);
 
-    const myFunction = new NodejsFunction(this, 'my-function', {
-      memorySize: 256,
-      timeout: Duration.seconds(5),
-      runtime: Runtime.NODEJS_14_X,
-      handler: 'main',
-      entry: join(__dirname, `/../src/index.ts`),
-    });
-  }
-}
+//     const myFunction = new NodejsFunction(this, 'my-function', {
+//       memorySize: 256,
+//       timeout: Duration.seconds(5),
+//       runtime: Runtime.NODEJS_14_X,
+//       handler: 'main',
+//       entry: join(__dirname, `/../src/index.ts`),
+//     });
+//   }
+// }
 
-class MyStage extends Stage {
+// class MyStage extends Stage {
     
-  constructor(scope: Construct, id: string, props?: StageProps) {
-    super(scope, id, props);
+//   constructor(scope: Construct, id: string, props?: StageProps) {
+//     super(scope, id, props);
 
-    const stack = new MyStack(this, 'LambdaDynamodbStack');      
-  }
-}
+//     const stack = new MyStack(this, 'LambdaDynamodbStack');      
+//   }
+// }
