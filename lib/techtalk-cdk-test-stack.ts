@@ -31,6 +31,7 @@ export class TechtalkCdkTestStack extends Stack {
     });
 
     const lambdaStage = new MyStage(this, 'LambdaStage');
+    pipeline.addStage(lambdaStage);
   }
 }
 
