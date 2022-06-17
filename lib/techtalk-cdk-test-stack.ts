@@ -27,6 +27,7 @@ export class TechtalkCdkTestStack extends Stack {
         input: CodePipelineSource.gitHub('phuwin95/techtalk-cdk-test', 'main'),
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
       }),
+      dockerEnabledForSynth: true,
     });
 
     const lambdaStage = new MyStage(this, 'LambdaStage');
@@ -42,7 +43,7 @@ class MyStack extends Stack {
       timeout: Duration.seconds(5),
       runtime: Runtime.NODEJS_14_X,
       handler: 'main',
-      entry: join(__dirname, `/../src/my-lambda/index.ts`),
+      entry: join(__dirname, `/../src/index.ts`),
     });
   }
 }
